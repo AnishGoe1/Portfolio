@@ -54,41 +54,51 @@ const HeroText = () => {
             </div>
         </div>
         {/* MobileView */}
-        <div className="flex flex-col space-y-6 md:hidden">
+        <div className="flex flex-col items-center justify-center space-y-6 md:hidden text-center w-full px-4">
+            {/* Greeting */}
             <motion.p 
                 className="text-4xl font-medium"
                 variants={variants}
-                initial = "hidden"
-                animate = "visible"
-                transition = {{delay:1}}
+                initial="hidden"
+                animate="visible"
+                transition={{ delay: 1 }}
             >
                 Hi, I'm Anish
             </motion.p>
-            <div>
+
+            {/* Main Heading Stack */}
+            <div className="flex flex-col items-center justify-center w-full">
                 <motion.p 
-                    className="text-5xl font-black text-neutral-300"
+                    className="text-5xl font-black text-neutral-300 w-full"
                     variants={variants}
-                    initial = "hidden"
-                    animate = "visible"
-                    transition = {{delay:1.2}}
+                    initial="hidden"
+                    animate="visible"
+                    transition={{ delay: 1.2 }}
                 >
                     Building
                 </motion.p>
+
+                {/* This wrapper forces the inline-block FlipWords to the center */}
                 <motion.div
+                    className="flex justify-center items-center w-full my-2"
                     variants={variants}
-                    initial = "hidden"
-                    animate = "visible"
-                    transition = {{delay:1.5}}
+                    initial="hidden"
+                    animate="visible"
+                    transition={{ delay: 1.5 }}
                 >
-                    <FlipWords words={words}
-                    className="font-bold text-white text-7xl" />
+                    <FlipWords 
+                        words={words}
+                        // We add text-center here and handle the PC view in FlipWords.tsx
+                        className="font-bold text-white text-6xl sm:text-7xl text-center" 
+                    />
                 </motion.div>
+
                 <motion.p 
-                    className="text-4xl font-black text-neutral-300"
+                    className="text-4xl font-black text-neutral-300 w-full"
                     variants={variants}
-                    initial = "hidden"
-                    animate = "visible"
-                    transition = {{delay:1.8}}
+                    initial="hidden"
+                    animate="visible"
+                    transition={{ delay: 1.8 }}
                 >
                     Robotic Systems
                 </motion.p>

@@ -10,7 +10,8 @@ import { Float} from '@react-three/drei';
 import Loader from "../components/Loader";
 
 const Hero = () => {
-  const isMobile = useMediaQuery({maxWidth: 853});
+  const isMobile = useMediaQuery({ maxWidth: 853 });
+
   return (
     <section id="home" className="flex items-start justify-center md:items-start 
     md:justify-start min-h-screen overflow-hidden c-space">
@@ -22,15 +23,20 @@ const Hero = () => {
         >
             <Canvas camera={{position: [0,1,3]}}>
                 <Suspense fallback={<Loader />}>
-                    <Float>
+                    <Float speed={isMobile ? 0 : 1} rotationIntensity={isMobile ? 0 : 1}>
                         <Astronaut 
+                            // Using ternaries to ensure desktop values remain unchanged
                             scale={isMobile && 0.23} 
                             position={isMobile && [0, -1.5, 0]}
                         />
                     </Float>
                 </Suspense>
-                <Rig />
-                <OrbitControls enableZoom={false}/>
+                
+                {/* Only inject the Rig logic if NOT on mobile */}
+                {!isMobile && <Rig />}
+                
+                {/* Disable touch/mouse interaction on mobile */}
+                <OrbitControls enableZoom={false} enabled={!isMobile} />
             </Canvas>
         </figure>
     </section>
