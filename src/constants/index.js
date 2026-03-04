@@ -187,4 +187,9 @@ export const mySocials = [
     href: "https://www.linkedin.com/in/anishgoel1/",
     icon: "/assets/socials/linkedIn.svg",
   },
+  {
+    name: "GitHub",
+    href: "https://github.com/AnishGoe1",
+    icon: "/assets/logos/GitHub.svg",
+  },
 ];
