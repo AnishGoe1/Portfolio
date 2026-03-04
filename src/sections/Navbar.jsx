@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import myResume from "../constants/resume.pdf";
+import myResume from "../constants/Resume.pdf";
 
 function Navigation({ onClick }) {
     return (
