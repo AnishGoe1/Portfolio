@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import myResume from "../constants/Resume.pdf";
 
 function Navigation({ onClick }) {
     return (
@@ -17,9 +16,7 @@ function Navigation({ onClick }) {
             <li className="nav-li">
                 <a 
                     className="nav-link" 
-                    href={myResume} 
-                    target="_blank" 
-                    rel="noreferrer"
+                    href="#resume"
                     onClick={onClick}
                 >
                     Resume
