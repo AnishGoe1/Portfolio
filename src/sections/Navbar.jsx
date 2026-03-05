@@ -32,7 +32,6 @@ function Navigation({ onClick }) {
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    // Helper to close the mobile menu
     const handleClose = () => setIsOpen(false);
 
     return (
@@ -54,7 +53,6 @@ const Navbar = () => {
                     </button>
 
                     <nav className="hidden sm:flex">
-                        {/* No onClick needed for desktop view */}
                         <Navigation />
                     </nav>
                 </div>
@@ -70,7 +68,6 @@ const Navbar = () => {
                     transition={{ duration: 1 }}
                 >
                     <nav className="pb-5">
-                        {/* Closes menu when a user selects a section */}
                         <Navigation onClick={handleClose} />
                     </nav>
                 </motion.div>

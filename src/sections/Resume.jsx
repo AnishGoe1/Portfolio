@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "motion/react"; // 1. Added Framer Motion import
+import { motion } from "motion/react"; 
 import resumeFile from "../constants/Resume.pdf";
 
 const Resume = () => {
@@ -11,16 +11,13 @@ const Resume = () => {
   };
 
   return (
-    // Added 'overflow-hidden' to contain the background glow
     <section id="resume" className="relative flex text-center items-center c-space section-spacing overflow-hidden via-neutral-700">
       
-      {/* 2. ADDED: Floating Aura (Background Glow) */}
       <div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 bg-purple-500/20 blur-[100px] rounded-full z-0" 
       />
 
       <div className="max-w-3xl mx-auto relative z-10">
-        {/* Added a subtle fade-in animation to the text */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +33,6 @@ const Resume = () => {
           </p>
         </motion.div>
 
-        {/* 3. ADDED: Magnetic/Interactive Button Animation */}
         <motion.div 
           className="mt-12"
           whileHover={{ scale: 1.05 }}
@@ -52,7 +48,6 @@ const Resume = () => {
                 : "border-white-100/20 hover:border-purple-300 text-white hover:bg-white-100/5"
               }`}
           >
-            {/* Animated Download Icon */}
             <motion.svg 
               animate={isDownloaded ? { y: [0, 5, 0] } : { y: 0 }}
               transition={{ repeat: isDownloaded ? Infinity : 0, duration: 0.6 }}
