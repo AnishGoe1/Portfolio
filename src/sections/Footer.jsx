@@ -18,7 +18,7 @@ const Footer = () => {
                 </a>
             ))}
         </div>
-        <p>@ 2026 Anish. All rigths reserved.</p>
+        <p>@ 2026 Anish. All rights reserved.</p>
     </section>
   )
 }
