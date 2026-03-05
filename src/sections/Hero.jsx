@@ -13,30 +13,29 @@ const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
 
   return (
-    <section id="home" className="flex items-start justify-center md:items-start 
-    md:justify-start min-h-screen overflow-hidden c-space">
+    <section id="home" className="flex items-start justify-center md:items-start md:justify-start min-h-screen overflow-hidden c-space">
         <HeroText />
         <ParallaxBackground />
         <figure 
-            className="absolute inset-0" 
-            style={{width: "100vw", height: "100vh"}}
+            className={`absolute inset-0 ${isMobile ? 'pointer-events-none' : ''}`} 
+            style={{ width: "100vw", height: "100vh" }}
         >
-            <Canvas camera={{position: [0,1,3]}}>
+            <Canvas camera={{ position: [0, 1, 3] }}>
                 <Suspense fallback={<Loader />}>
-                    <Float speed={isMobile ? 0 : 1} rotationIntensity={isMobile ? 0 : 1}>
+                    <Float speed={isMobile ? 0 : 1}>
                         <Astronaut 
-                            // Using ternaries to ensure desktop values remain unchanged
-                            scale={isMobile && 0.23} 
-                            position={isMobile && [0, -1.5, 0]}
+                            scale={isMobile && 0.23 } 
+                            position={isMobile && [0, -1.5, 0] }
                         />
                     </Float>
                 </Suspense>
-                
-                {/* Only inject the Rig logic if NOT on mobile */}
-                {!isMobile && <Rig />}
-                
-                {/* Disable touch/mouse interaction on mobile */}
-                <OrbitControls enableZoom={false} enabled={!isMobile} />
+
+                {!isMobile && (
+                    <>
+                        <Rig />
+                        <OrbitControls enableZoom={false} />
+                    </>
+                )}
             </Canvas>
         </figure>
     </section>
